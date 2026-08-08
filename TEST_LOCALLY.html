@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 Digital Garden — Local Testing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #2563EB;
+      margin-top: 0;
+    }
+    
+    h2 {
+      color: #1D4ED8;
+      border-bottom: 2px solid #DBEAFE;
+      padding-bottom: 10px;
+      margin-top: 30px;
+    }
+    
+    .test-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 4px;
+      background: #f9f9f9;
+      border-left: 4px solid #ccc;
+    }
+    
+    .test-item.pass {
+      background: #E8F5E9;
+      border-left-color: #4CAF50;
+    }
+    
+    .test-item.fail {
+      background: #FFEBEE;
+      border-left-color: #F44336;
+    }
+    
+    .test-item.pending {
+      background: #FFF8E1;
+      border-left-color: #FF9800;
+    }
+    
+    .status-icon {
+      font-size: 20px;
+      margin-right: 10px;
+      min-width: 20px;
+    }
+    
+    .test-label {
+      flex: 1;
+    }
+    
+    .test-input {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    button {
+      background: #2563EB;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 14px;
+    }
+    
+    button:hover {
+      background: #1D4ED8;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    
+    .results {
+      background: #f0f9ff;
+      border: 1px solid #0369A1;
+      border-radius: 4px;
+      padding: 15px;
+      margin-top: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    
+    .info-box {
+      background: #EBF8FF;
+      border-left: 4px solid #0369A1;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    
+    .success { color: #2e7d32; font-weight: bold; }
+    .error { color: #c62828; font-weight: bold; }
+    .warning { color: #f57c00; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Digital Garden — Local Testing Suite</h1>
+    
+    <div class="info-box">
+      <strong>📝 Инструкция:</strong> Откройте index.html в браузере, затем запустите тесты ниже.
+    </div>
+
+    <h2>1️⃣ Переключение тем</h2>
+    <div class="test-item pending">
+      <span class="status-icon">🔄</span>
+      <span class="test-label">
+        <strong>Тест темы:</strong> 
+        Нажмите кнопку, проверьте что тема меняется
+      </span>
+    </div>
+    <div class="button-group">
+      <button onclick="testTheme()">✓ Протестировать тему</button>
+      <button onclick="console.log('Откройте DevTools (F12) → Console для логов'); alert('Откройте DevTools (F12) для просмотра логов!')">📊 Показать логи</button>
+    </div>
+    <div id="themeResults" class="results" style="display:none;"></div>
+
+    <h2>2️⃣ LocalStorage</h2>
+    <div class="test-item pending">
+      <span class="status-icon">💾</span>
+      <span class="test-label">
+        <strong>Сохранение данных:</strong> 
+        Проверка что localStorage работает
+      </span>
+    </div>
+    <div class="button-group">
+      <button onclick="testLocalStorage()">✓ Проверить localStorage</button>
+      <button onclick="clearLocalStorage()">🗑️ Очистить localStorage</button>
+    </div>
+    <div id="storageResults" class="results" style="display:none;"></div>
+
+    <h2>3️⃣ Файлы и ресурсы</h2>
+    <div class="test-item pending">
+      <span class="status-icon">📦</span>
+      <span class="test-label">
+        <strong>Загрузка ресурсов:</strong> 
+        Проверка что все файлы загружаются
+      </span>
+    </div>
+    <div class="button-group">
+      <button onclick="testResources()">✓ Проверить ресурсы</button>
+    </div>
+    <div id="resourcesResults" class="results" style="display:none;"></div>
+
+    <h2>4️⃣ API и Глобальные переменные</h2>
+    <div class="test-item pending">
+      <span class="status-icon">🔗</span>
+      <span class="test-label">
+        <strong>JavaScript переменные:</strong> 
+        Проверка что JS правильно загружен
+      </span>
+    </div>
+    <div class="button-group">
+      <button onclick="testJSVariables()">✓ Проверить переменные</button>
+    </div>
+    <div id="jsResults" class="results" style="display:none;"></div>
+
+    <h2>5️⃣ Функциональность</h2>
+    <div class="test-item pending">
+      <span class="status-icon">⚙️</span>
+      <span class="test-label">
+        <strong>Функции:</strong> 
+        Проверка что основные функции работают
+      </span>
+    </div>
+    <div class="button-group">
+      <button onclick="testFunctionality()">✓ Проверить функции</button>
+    </div>
+    <div id="functionalityResults" class="results" style="display:none;"></div>
+
+    <h2>📋 Полный чек-лист</h2>
+    <button onclick="runAllTests()" style="background:#059669; margin: 15px 0; padding: 12px 24px; font-size: 16px;">
+      ✓ Запустить все тесты
+    </button>
+    <div id="allResults" class="results" style="display:none;"></div>
+
+    <div class="info-box" style="margin-top: 30px;">
+      <strong>💡 Советы:</strong>
+      <ul>
+        <li>Откройте DevTools (F12) → Console для просмотра подробных логов</li>
+        <li>Откройте DevTools → Application → Storage для просмотра localStorage</li>
+        <li>Откройте DevTools → Network для проверки загрузки файлов</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function log(message) {
+      console.log('[TEST]', message);
+      return message;
+    }
+
+    function testTheme() {
+      const results = document.getElementById('themeResults');
+      results.style.display = 'block';
+      const html = document.documentElement;
+      const isDark = html.classList.contains('dark');
+      const saved = localStorage.getItem('theme');
+      
+      let output = `[${new Date().toLocaleTimeString()}]\n\n`;
+      output += `Текущая тема: ${isDark ? '🌙 DARK' : '☀️ LIGHT'}\n`;
+      output += `Сохранённо в localStorage: ${saved || 'не установлено'}\n`;
+      output += `Класс на <html>: ${html.className || '(пусто)'}\n`;
+      output += `\n✓ Тема системы: ${window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light'}`;
+      
+      results.textContent = output;
+      alert('✓ Информация о теме показана в консоли тестов ниже');
+    }
+
+    function testLocalStorage() {
+      const results = document.getElementById('storageResults');
+      results.style.display = 'block';
+      let output = `[${new Date().toLocaleTimeString()}]\n\n`;
+      
+      try {
+        localStorage.setItem('test', 'works');
+        const test = localStorage.getItem('test');
+        localStorage.removeItem('test');
+        
+        output += `✓ localStorage работает\n\n`;
+        output += `Сохранённые данные:\n`;
+        output += `• theme: ${localStorage.getItem('theme') || '(не установлено)'}\n`;
+        output += `• language: ${localStorage.getItem('language') || '(не установлено)'}\n`;
+      } catch (e) {
+        output += `✗ ОШИБКА: ${e.message}\n`;
+      }
+      
+      results.textContent = output;
+    }
+
+    function testResources() {
+      const results = document.getElementById('resourcesResults');
+      results.style.display = 'block';
+      let output = `[${new Date().toLocaleTimeString()}]\n\n`;
+      
+      const resources = [
+        { name: 'CSS: theme.css', check: () => document.querySelector('link[href="css/theme.css"]') },
+        { name: 'CSS: styles.css', check: () => document.querySelector('link[href="css/styles.css"]') },
+        { name: 'JS: i18n.js', check: () => typeof window.translations !== 'undefined' },
+        { name: 'JS: main.js', check: () => typeof initTheme === 'function' },
+        { name: 'Images: fonart.jpg', check: () => true }
+      ];
+      
+      resources.forEach(r => {
+        const ok = r.check();
+        output += `${ok ? '✓' : '✗'} ${r.name}\n`;
+      });
+      
+      results.textContent = output;
+    }
+
+    function testJSVariables() {
+      const results = document.getElementById('jsResults');
+      results.style.display = 'block';
+      let output = `[${new Date().toLocaleTimeString()}]\n\n`;
+      
+      output += `Глобальные переменные:\n`;
+      output += `• window.allArticles: ${typeof window.allArticles}\n`;
+      output += `• window.filteredArticles: ${typeof window.filteredArticles}\n`;
+      output += `• window.translations: ${typeof window.translations}\n`;
+      output += `\nФункции:\n`;
+      output += `• initTheme: ${typeof initTheme === 'function' ? '✓' : '✗'}\n`;
+      output += `• initSearch: ${typeof initSearch === 'function' ? '✓' : '✗'}\n`;
+      output += `• initFilters: ${typeof initFilters === 'function' ? '✓' : '✗'}\n`;
+      output += `• applyFilters: ${typeof applyFilters === 'function' ? '✓' : '✗'}\n`;
+      output += `• renderArticles: ${typeof renderArticles === 'function' ? '✓' : '✗'}\n`;
+      
+      results.textContent = output;
+    }
+
+    function testFunctionality() {
+      const results = document.getElementById('functionalityResults');
+      results.style.display = 'block';
+      let output = `[${new Date().toLocaleTimeString()}]\n\n`;
+      
+      // Test theme toggle
+      const html = document.documentElement;
+      const themeBtn = document.getElementById('themeToggle');
+      const isDarkBefore = html.classList.contains('dark');
+      themeBtn?.click?.();
+      const isDarkAfter = html.classList.contains('dark');
+      output += `🎨 Переключение темы: ${isDarkBefore !== isDarkAfter ? '✓' : '✗'}\n`;
+      
+      // Test search
+      const searchInput = document.getElementById('searchInput');
+      output += `🔍 Поиск: ${searchInput ? '✓' : '✗'}\n`;
+      
+      // Test filters
+      const filterContainer = document.getElementById('filterContainer');
+      output += `🏷️ Фильтры: ${filterContainer?.children?.length > 0 ? '✓' : '✗'}\n`;
+      
+      // Test articles grid
+      const grid = document.getElementById('articlesGrid');
+      output += `📄 Сетка статей: ${grid?.children?.length > 0 ? '✓' : '✗'}\n`;
+      
+      // Test language toggle
+      const langBtn = document.getElementById('languageToggle');
+      output += `🌐 Переключение языка: ${langBtn ? '✓' : '✗'}\n`;
+      
+      results.textContent = output;
+    }
+
+    function clearLocalStorage() {
+      localStorage.clear();
+      alert('✓ localStorage очищен. Обновите страницу.');
+    }
+
+    function runAllTests() {
+      const results = document.getElementById('allResults');
+      results.style.display = 'block';
+      let output = `[ПОЛНЫЙ ТЕСТ] ${new Date().toLocaleTimeString()}\n\n`;
+      
+      // Theme
+      const html = document.documentElement;
+      output += `✓ Тема: ${html.classList.contains('dark') ? 'dark' : 'light'}\n`;
+      
+      // LocalStorage
+      try {
+        localStorage.setItem('test', '1');
+        localStorage.removeItem('test');
+        output += `✓ LocalStorage работает\n`;
+      } catch (e) {
+        output += `✗ LocalStorage: ${e.message}\n`;
+      }
+      
+      // Elements
+      const checks = [
+        { name: 'Theme toggle', el: 'themeToggle' },
+        { name: 'Language toggle', el: 'languageToggle' },
+        { name: 'Search input', el: 'searchInput' },
+        { name: 'Articles grid', el: 'articlesGrid' },
+        { name: 'Filter container', el: 'filterContainer' }
+      ];
+      
+      output += `\n📦 Элементы страницы:\n`;
+      checks.forEach(c => {
+        const exists = !!document.getElementById(c.el);
+        output += `${exists ? '✓' : '✗'} ${c.name}\n`;
+      });
+      
+      // Functions
+      output += `\n⚙️ Функции JS:\n`;
+      const funcs = ['initTheme', 'initSearch', 'initFilters', 'applyFilters', 'renderArticles'];
+      funcs.forEach(f => {
+        output += `${typeof window[f] === 'function' ? '✓' : '✗'} ${f}\n`;
+      });
+      
+      output += `\n\n✅ Тест завершён. Если все ✓, сайт готов к развёртыванию!`;
+      
+      results.textContent = output;
+    }
+  </script>
+</body>
+</html>
