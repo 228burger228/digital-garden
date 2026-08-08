@@ -1,0 +1,83 @@
+/* Digital Garden — Theme Variables */
+
+/* ============================================================================
+   Light Theme (Default) - Bright & Pleasant
+   ============================================================================ */
+
+html {
+  --bg-primary: #FAFAFA;           /* Soft paper-like background */
+  --bg-secondary: #FFFFFF;         /* Pure white for cards */
+  --text-primary: #111827;         /* Deep dark gray - maximum readability */
+  --text-secondary: #6B7280;       /* Medium gray for secondary text */
+  --border: #E5E7EB;               /* Light border */
+
+  /* Accent Colors */
+  --accent: #2563EB;               /* Professional blue */
+  --accent-hover: #1D4ED8;         /* Darker blue on hover */
+  --accent-light: #DBEAFE;         /* Light blue background */
+
+  /* Status Colors */
+  --success: #059669;
+  --warning: #D97706;
+  --error: #DC2626;
+  --info: #0369A1;
+
+  /* Transitions */
+  --transition: all 0.2s ease;
+}
+
+/* ============================================================================
+   Dark Theme
+   ============================================================================ */
+
+html.dark {
+  /* Primary Colors */
+  --bg-primary: #111827;           /* Deep dark background */
+  --bg-secondary: #1F2937;         /* Slightly lighter for cards */
+  --text-primary: #F3F4F6;         /* Light gray text */
+  --text-secondary: #D1D5DB;       /* Medium gray for secondary */
+  --border: #374151;               /* Dark border */
+
+  /* Accent Colors */
+  --accent: #3B82F6;               /* Brighter blue for dark mode */
+  --accent-hover: #60A5FA;         /* Even brighter on hover */
+  --accent-light: #1E3A8A;         /* Very dark blue background */
+
+  /* Status Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #F87171;
+  --info: #38BDF8;
+}
+
+/* ============================================================================
+   Prefers Dark Mode (System preference)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg-primary: #0B0F17;
+    --bg-secondary: #1A2332;
+    --text-primary: #E5E7EB;
+    --text-secondary: #9CA3AF;
+    --border: #334155;
+    --accent: #60A5FA;
+    --accent-hover: #93C5FD;
+    --accent-light: #0C4A6E;
+    --success: #34D399;
+    --warning: #FBBF24;
+    --error: #F87171;
+    --info: #38BDF8;
+  }
+}
+
+/* ============================================================================
+   Theme Transition
+   ============================================================================ */
+
+body.theme-transition,
+body.theme-transition *,
+body.theme-transition *:before,
+body.theme-transition *:after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
