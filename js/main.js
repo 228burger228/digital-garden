@@ -32,6 +32,21 @@ async function loadArticles() {
 async function fetchArticlesList() {
   return [
     {
+      id: 'visual-literacy-methodology',
+      date: '2026-08-10',
+      updated: null,
+      status: 'Published',
+      heroImage: null,
+      readTime: 22,
+      ru: {
+        title: 'Методология визуальной грамотности: от гештальта до дизайн-систем',
+        description: 'Академический справочник: канонические источники, матрица Knowledge→Skill→Exercise→Assessment, 8-ступенчатый цикл Visual Literacy, разбор кейсов Pentagram и Мюллер-Брокманна, курированная библиотека и глоссарий.',
+        categories: ['Дизайн', 'Образование'],
+        tags: ['визуальная-грамотность', 'типографика', 'гештальт', 'дизайн-системы', 'методология'],
+        url: 'articles/visual-literacy-methodology.html'
+      }
+    },
+    {
       id: 'agentic-ai-prepress',
       date: '2024-01-25',
       updated: null,
