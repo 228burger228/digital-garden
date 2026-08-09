@@ -26,7 +26,7 @@ const i18n = {
     'footer_email': '📧 Email',
     'footer_linkedin': '🔗 LinkedIn',
     'footer_github': '💼 GitHub',
-    'footer_copyright': '© 2024 Цифровой сад. Все права защищены.',
+    'footer_copyright': 'Цифровой сад. Все права защищены.',
     
     // Article Page
     'back_to_garden': '← Вернуться в сад',
@@ -34,6 +34,9 @@ const i18n = {
     'last_updated': 'Последнее обновление:',
     'read_time_label': 'мин чтения',
     'categories': 'Категории:',
+    'clear_filters': 'Сбросить',
+    'view_original': 'Читать на английском',
+    'view_translation': 'Читать на русском',
     
     // Language Toggle
     'language': 'Язык',
@@ -63,7 +66,7 @@ const i18n = {
     'footer_email': '📧 Email',
     'footer_linkedin': '🔗 LinkedIn',
     'footer_github': '💼 GitHub',
-    'footer_copyright': '© 2024 Digital Garden. All rights reserved.',
+    'footer_copyright': 'Digital Garden. All rights reserved.',
     
     // Article Page
     'back_to_garden': '← Back to Garden',
@@ -71,6 +74,9 @@ const i18n = {
     'last_updated': 'Last updated:',
     'read_time_label': 'min read',
     'categories': 'Categories:',
+    'clear_filters': 'Clear All',
+    'view_original': 'Read in English',
+    'view_translation': 'Read in Russian',
     
     // Language Toggle
     'language': 'Language',
@@ -107,6 +113,22 @@ function translatePage() {
     const key = el.getAttribute('data-i18n-placeholder');
     el.placeholder = t(key);
   });
+
+  // Copyright year is injected dynamically so it never goes stale
+  const copyrightEl = document.querySelector('[data-i18n="footer_copyright"]');
+  if (copyrightEl) {
+    copyrightEl.textContent = `© ${new Date().getFullYear()} ${t('footer_copyright')}`;
+  }
+}
+
+// Returns the correct Intl locale string for the current language
+function getLocale() {
+  return getCurrentLanguage() === 'ru' ? 'ru-RU' : 'en-US';
+}
+
+// Format a date string according to the current language
+function formatDate(dateStr, options = { year: 'numeric', month: 'long', day: 'numeric' }) {
+  return new Date(dateStr).toLocaleDateString(getLocale(), options);
 }
 
 // Initialize translations on page load
