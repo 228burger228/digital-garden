@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Digital Garden — 2026</title>
+    <link>https://digitalgardenai.com</link>
+    <description>Современный архив исследований о технологиях, дизайне, философии и жизни.</description>
+    <language>ru</language>
+    <lastBuildDate>2026-08-10T12:00:00Z</lastBuildDate>
+    <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://digitalgardenai.com/feed.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Методология визуальной грамотности: от гештальта до дизайн-систем</title>
+      <link>https://digitalgardenai.com/articles/visual-literacy-methodology.html</link>
+      <description>Академический справочник: канонические источники, матрица Knowledge→Skill→Exercise→Assessment, 8-ступенчатый цикл Visual Literacy, разбор кейсов Pentagram и Мюллер-Брокманна, курированная библиотека и глоссарий.</description>
+      <pubDate>Sun, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <author>ai.movl@gmail.com</author>
+      <category>Дизайн</category>
+      <category>Образование</category>
+      <guid>https://digitalgardenai.com/articles/visual-literacy-methodology.html</guid>
+    </item>
+
+    <item>
+      <title>Autonomous Agentic AI and Algorithmic Automation in Prepress</title>
+      <link>https://digitalgardenai.com/articles/agentic-ai-prepress.html</link>
+      <description>Market dynamics, technical architecture, and ROI projections for AI-driven digital printing automation (2024–2034). Analysis of autonomous multi-agent systems in the prepress workflow.</description>
+      <pubDate>Wed, 25 Jan 2024 00:00:00 +0000</pubDate>
+      <author>ai.movl@gmail.com</author>
+      <category>IT &amp; Технология</category>
+      <category>Бизнес</category>
+      <guid>https://digitalgardenai.com/articles/agentic-ai-prepress.html</guid>
+    </item>
+
+    <item>
+      <title>Getting Started with Digital Garden</title>
+      <link>https://digitalgardenai.com/articles/example-getting-started.html</link>
+      <description>A comprehensive guide to building your personal research archive and publishing your first article. Learn how to set up, customize, and grow your Digital Garden.</description>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
+      <author>ai.movl@gmail.com</author>
+      <category>Guide</category>
+      <category>Research</category>
+      <guid>https://digitalgardenai.com/articles/example-getting-started.html</guid>
+    </item>
+
+  </channel>
+</rss>

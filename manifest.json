@@ -1,0 +1,67 @@
+{
+  "name": "Digital Garden — Исследования и размышления",
+  "short_name": "Digital Garden",
+  "description": "Современный архив исследований о технологиях, дизайне, философии и жизни.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#2563EB",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot-540.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "images/screenshot-1280.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["productivity", "education"],
+  "shortcuts": [
+    {
+      "name": "Все статьи",
+      "short_name": "Статьи",
+      "description": "Просмотреть все статьи в саду",
+      "url": "/index.html",
+      "icons": [
+        {
+          "src": "images/icon-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

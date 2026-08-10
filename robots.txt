@@ -1,0 +1,18 @@
+# Digital Garden robots.txt
+User-agent: *
+Allow: /
+Allow: /articles/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Disallow private/system files
+Disallow: /.kiro/
+Disallow: /node_modules/
+Disallow: /*.md
+
+# Sitemap
+Sitemap: https://digitalgardenai.com/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1
