@@ -6,6 +6,12 @@
   <meta name="description" content="Digital Garden 2026 — Современный архив исследований о технологиях, дизайне, философии и жизни.">
   <meta name="theme-color" content="#2563EB">
   
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Digital Garden">
+  
   <!-- Open Graph -->
   <meta property="og:title" content="Digital Garden — 2026">
   <meta property="og:description" content="Современный архив исследований и размышлений">
@@ -120,19 +126,48 @@
   <footer>
     <div class="container">
       <div class="footer-links">
-        <a href="mailto:your-email@example.com" data-i18n="footer_email" title="Email">
-          📧 Email
-        </a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" data-i18n="footer_linkedin" title="LinkedIn">
-          🔗 LinkedIn
-        </a>
-        <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" data-i18n="footer_github" title="GitHub">
+        <button id="contactFormBtn" class="footer-link-btn" title="Связаться" aria-label="Open contact form">
+          📧 Связаться
+        </button>
+        <a href="https://github.com/228burger228" target="_blank" rel="noopener noreferrer" title="GitHub">
           💼 GitHub
+        </a>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener noreferrer" title="Telegram">
+          ✈️ Telegram
         </a>
       </div>
       <p class="footer-copyright" data-i18n="footer_copyright">© 2026 Цифровой сад. Все права защищены.</p>
     </div>
   </footer>
+
+  <!-- Contact Form Modal -->
+  <div id="contactModal" class="modal" style="display: none;">
+    <div class="modal-content" style="max-width: 500px;">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h2 style="margin-top: 0;">Напишите мне</h2>
+      
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" required placeholder="Ваше имя">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Ваш email">
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" required placeholder="Ваше сообщение" rows="5"></textarea>
+        </div>
+        
+        <div id="formStatus" style="display: none; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; text-align: center;"></div>
+        
+        <button type="submit" class="btn-submit" id="submitBtn">Отправить</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script>
@@ -156,6 +191,8 @@
   <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/modal.js" defer></script>
+  <script src="js/contact-form.js" defer></script>
+  <script src="js/seo.js" defer></script>
   <script>window.SITE_ROOT = '';</script>
   <script src="js/floating-nav.js" defer></script>
   
