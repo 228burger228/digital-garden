@@ -5,9 +5,20 @@
     <link>https://digitalgardenai.com</link>
     <description>Современный архив исследований о технологиях, дизайне, философии и жизни.</description>
     <language>ru</language>
-    <lastBuildDate>2026-08-10T12:00:00Z</lastBuildDate>
+    <lastBuildDate>2026-08-12T12:00:00Z</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://digitalgardenai.com/feed.xml" rel="self" type="application/rss+xml"/>
     
+    <item>
+      <title>Родительство и психология: полный справочник</title>
+      <link>https://digitalgardenai.com/articles/parenting-psychology-guide.html</link>
+      <description>Практический гайд по детской психологии: как понимать поведение ребёнка, работать с тревогой, избегать выгорания и формировать здоровую привязанность. Материалы психолога Василисы Бутусовой.</description>
+      <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
+      <author>ai.movl@gmail.com</author>
+      <category>Психология</category>
+      <category>Воспитание</category>
+      <guid>https://digitalgardenai.com/articles/parenting-psychology-guide.html</guid>
+    </item>
+
     <item>
       <title>Методология визуальной грамотности: от гештальта до дизайн-систем</title>
       <link>https://digitalgardenai.com/articles/visual-literacy-methodology.html</link>
