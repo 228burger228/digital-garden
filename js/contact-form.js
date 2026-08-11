@@ -4,18 +4,48 @@
   const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
   const contactFormBtn = document.getElementById('contactFormBtn');
+  const suggestTopicBtn = document.getElementById('suggestTopicBtn');
   const contactModal = document.getElementById('contactModal');
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
   const modalClose = contactModal.querySelector('.modal-close');
 
-  // Open modal
+  // Helper: Open modal with specific context
+  function openModal(title, placeholderText) {
+    const heading = contactModal.querySelector('h2');
+    const textareaPlaceholder = contactModal.querySelector('textarea[name="message"]');
+    
+    heading.textContent = title;
+    if (textareaPlaceholder) {
+      textareaPlaceholder.placeholder = placeholderText;
+    }
+    
+    contactModal.style.display = 'flex';
+    contactModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    
+    // Focus first input
+    document.getElementById('name')?.focus();
+  }
+
+  // Open modal for "Связаться"
   if (contactFormBtn) {
     contactFormBtn.addEventListener('click', () => {
-      contactModal.style.display = 'flex';
-      contactModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+      openModal(
+        'Связаться со мной',
+        'Напишите ваше сообщение...'
+      );
+    });
+  }
+
+  // Open modal for "Предложить тему"
+  if (suggestTopicBtn) {
+    suggestTopicBtn.addEventListener('click', () => {
+      openModal(
+        'Предложить тему',
+        'Расскажи, какую тему, книгу или статью ты хочешь разобрать...'
+      );
     });
   }
 
@@ -52,7 +82,7 @@
       name: formData.get('name'),
       email: formData.get('email'),
       message: formData.get('message'),
-      _subject: `New message from ${formData.get('name')}`,
+      _subject: `Новое сообщение от ${formData.get('name')}`,
     };
 
     // Show loading state
