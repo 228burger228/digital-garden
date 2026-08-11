@@ -1,27 +1,15 @@
-/* Digital Garden — Theme Variables */
+/* Digital Garden — Theme Variables (Legacy compatibility) */
 
 /* ============================================================================
-   Light Theme (Default) - Bright & Pleasant
+   Light Theme (Default) - Warm & Editorial
    ============================================================================ */
 
 html {
-  --bg-primary: #FAFAFA;           /* Soft paper-like background */
-  --bg-secondary: #FFFFFF;         /* Pure white for cards */
-  --text-primary: #111827;         /* Deep dark gray - maximum readability */
-  --text-secondary: #6B7280;       /* Medium gray for secondary text */
-  --border: #E5E7EB;               /* Light border */
-
-  /* Accent Colors */
-  --accent: #2563EB;               /* Professional blue */
-  --accent-hover: #1D4ED8;         /* Darker blue on hover */
-  --accent-light: #DBEAFE;         /* Light blue background */
-
-  /* Status Colors */
-  --success: #059669;
-  --warning: #D97706;
-  --error: #DC2626;
-  --info: #0369A1;
-
+  /* Map old variables to new design tokens for backward compatibility */
+  --accent: var(--accent-sage, #6B9E7F);
+  --accent-hover: var(--accent-dark, #4A7360);
+  --accent-light: var(--accent-light, #E8F4F0);
+  
   /* Transitions */
   --transition: all 0.2s ease;
 }
@@ -31,23 +19,7 @@ html {
    ============================================================================ */
 
 html.dark {
-  /* Primary Colors */
-  --bg-primary: #111827;           /* Deep dark background */
-  --bg-secondary: #1F2937;         /* Slightly lighter for cards */
-  --text-primary: #F3F4F6;         /* Light gray text */
-  --text-secondary: #D1D5DB;       /* Medium gray for secondary */
-  --border: #374151;               /* Dark border */
-
-  /* Accent Colors */
-  --accent: #3B82F6;               /* Brighter blue for dark mode */
-  --accent-hover: #60A5FA;         /* Even brighter on hover */
-  --accent-light: #1E3A8A;         /* Very dark blue background */
-
-  /* Status Colors */
-  --success: #10B981;
-  --warning: #F59E0B;
-  --error: #F87171;
-  --info: #38BDF8;
+  /* Dark mode already defined in design-tokens.css */
 }
 
 /* ============================================================================
@@ -55,24 +27,13 @@ html.dark {
    ============================================================================ */
 
 @media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --bg-primary: #0B0F17;
-    --bg-secondary: #1A2332;
-    --text-primary: #E5E7EB;
-    --text-secondary: #9CA3AF;
-    --border: #334155;
-    --accent: #60A5FA;
-    --accent-hover: #93C5FD;
-    --accent-light: #0C4A6E;
-    --success: #34D399;
-    --warning: #FBBF24;
-    --error: #F87171;
-    --info: #38BDF8;
+  html:not(.light) {
+    /* Uses dark mode from design-tokens.css */
   }
 }
 
 /* ============================================================================
-   Theme Transition
+   Theme Transition (Smooth color switching)
    ============================================================================ */
 
 body.theme-transition,
