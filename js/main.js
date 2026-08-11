@@ -32,6 +32,21 @@ async function loadArticles() {
 async function fetchArticlesList() {
   return [
     {
+      id: 'parenting-psychology-guide',
+      date: '2026-08-12',
+      updated: null,
+      status: 'Published',
+      heroImage: null,
+      readTime: 25,
+      ru: {
+        title: 'Родительство и психология: полный справочник',
+        description: 'Практический гайд по детской психологии: как понимать поведение ребёнка, работать с тревогой, избегать выгорания и формировать здоровую привязанность.',
+        categories: ['Психология', 'Воспитание'],
+        tags: ['психология-детей', 'воспитание', 'тревога', 'выгорание', 'КПТ'],
+        url: 'articles/parenting-psychology-guide.html'
+      }
+    },
+    {
       id: 'visual-literacy-methodology',
       date: '2026-08-10',
       updated: null,
