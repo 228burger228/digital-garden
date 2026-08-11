@@ -1,0 +1,266 @@
+/* ============================================================================
+   Design Tokens — Digital Garden Redesign
+   ============================================================================
+   
+   Color System, Typography Scale, Spacing Grid, Shadows, Border Radius
+   Supports Light Mode (default) and Dark Mode
+*/
+
+/* ============================================================================
+   Light Mode (Default)
+   ============================================================================ */
+
+:root {
+  /* --- Colors: Light Mode --- */
+  
+  /* Primary Backgrounds */
+  --bg-primary: #F9F7F4;      /* Warm off-white (main background) */
+  --bg-secondary: #F3EFE9;    /* Slightly darker (cards, sections) */
+  
+  /* Text Colors */
+  --text-primary: #1F2937;    /* Deep charcoal (main text) */
+  --text-secondary: #6B7280;  /* Medium gray (secondary text) */
+  --text-tertiary: #9CA3AF;   /* Light gray (muted text) */
+  
+  /* Accent Colors (Sage Green) */
+  --accent-sage: #6B9E7F;     /* Primary sage accent */
+  --accent-light: #E8F4F0;    /* Light sage background */
+  --accent-dark: #4A7360;     /* Dark sage (for contrast) */
+  
+  /* Border & Divider */
+  --border: #E5DDD6;          /* Light beige border */
+  --border-light: #EBE7E1;    /* Even lighter border */
+  
+  /* Status Colors */
+  --success: #059669;         /* Green (for positive actions) */
+  --error: #DC2626;           /* Red (for errors) */
+  --warning: #D97706;         /* Amber (for warnings) */
+  --info: #2563EB;            /* Blue (for info) */
+  
+  /* --- Typography --- */
+  
+  /* Font Families */
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Font Sizes */
+  --fs-h1: 48px;              /* Hero title */
+  --fs-h2: 32px;              /* Section title */
+  --fs-h3: 24px;              /* Subsection title */
+  --fs-h4: 20px;              /* Medium heading */
+  --fs-h5: 18px;              /* Card title */
+  --fs-body: 16px;            /* Body text */
+  --fs-small: 14px;           /* Small text */
+  --fs-xs: 12px;              /* Extra small (labels) */
+  
+  /* Line Heights */
+  --lh-tight: 1.2;            /* For headings */
+  --lh-normal: 1.5;           /* For body */
+  --lh-relaxed: 1.6;          /* For reading content */
+  
+  /* Font Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  
+  /* --- Spacing (8px base grid) --- */
+  
+  --space-xs: 4px;            /* Minimal gaps */
+  --space-sm: 8px;            /* Small gaps, component padding */
+  --space-md: 16px;           /* Medium gaps, section padding */
+  --space-lg: 24px;           /* Large gaps */
+  --space-xl: 32px;           /* Extra large gaps */
+  --space-xxl: 48px;          /* Hero, top-level spacing */
+  
+  /* --- Border Radius --- */
+  
+  --radius-sm: 12px;          /* Small radius (buttons, cards) */
+  --radius-md: 16px;          /* Medium radius (modals) */
+  --radius-lg: 24px;          /* Large radius (major elements) */
+  --radius-full: 9999px;      /* Fully rounded (pills, badges) */
+  
+  /* --- Shadows --- */
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.16);
+  
+  /* Inset shadow (for depth) */
+  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+  
+  /* --- Transitions --- */
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  
+  /* --- Z-Index Scale --- */
+  
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-tooltip: 600;
+}
+
+/* ============================================================================
+   Dark Mode
+   ============================================================================ */
+
+html.dark {
+  /* --- Colors: Dark Mode --- */
+  
+  /* Primary Backgrounds */
+  --bg-primary: #0F1419;      /* Deep charcoal (main background) */
+  --bg-secondary: #1A1F26;    /* Slightly lighter (cards, sections) */
+  
+  /* Text Colors */
+  --text-primary: #E5E7EB;    /* Light gray (main text) */
+  --text-secondary: #9CA3AF;  /* Medium gray (secondary text) */
+  --text-tertiary: #6B7280;   /* Darker gray (muted text) */
+  
+  /* Accent Colors (Sage Green — warm variant) */
+  --accent-sage: #7FAC8E;     /* Lighter sage for contrast */
+  --accent-light: #1D3A2F;    /* Dark sage background */
+  --accent-dark: #A8C9B8;     /* Light sage (for high contrast) */
+  
+  /* Border & Divider */
+  --border: #2D3D38;          /* Dark beige border */
+  --border-light: #232B26;    /* Even darker border */
+  
+  /* Status Colors (adjusted for dark theme) */
+  --success: #10B981;         /* Brighter green */
+  --error: #EF4444;           /* Brighter red */
+  --warning: #F59E0B;         /* Brighter amber */
+  --info: #3B82F6;            /* Brighter blue */
+}
+
+/* ============================================================================
+   Utility Classes
+   ============================================================================ */
+
+/* Text Utilities */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-accent {
+  color: var(--accent-sage);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Spacing Utilities */
+.px-md {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.py-lg {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+.gap-md {
+  gap: var(--space-md);
+}
+
+/* Display Utilities */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Container Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container-wide {
+  max-width: 100%;
+  padding: 0 var(--space-md);
+}
+
+/* ============================================================================
+   Accessibility Utilities
+   ============================================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus Visible for Keyboard Navigation */
+*:focus-visible {
+  outline: 2px solid var(--accent-sage);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+
+@media print {
+  :root {
+    --bg-primary: #ffffff;
+    --text-primary: #000000;
+  }
+  
+  .no-print {
+    display: none;
+  }
+}
