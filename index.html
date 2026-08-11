@@ -20,7 +20,9 @@
   <title>Digital Garden 2026 — Исследования и размышления</title>
   
   <!-- Styles -->
+  <link rel="stylesheet" href="css/design-tokens.css">
   <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- Fonts -->
@@ -67,11 +69,21 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <div class="container">
-        <h1 data-i18n="logo">🌱 Цифровой сад</h1>
-        <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem;" data-i18n="tagline">
-          От технологий и дизайна до философии и личных размышлений
+      <div class="hero-content">
+        <h1 class="hero-title">Цифровой сад</h1>
+        <p class="hero-subtitle">Место, где растут идеи, исследования и знания</p>
+        <p class="hero-description">
+          Здесь я собираю и кратко разбираю темы, которые когда-либо меня заинтересовали — 
+          от технологий и дизайна до философии, книг и совершенно неожиданных вещей.
         </p>
+        <div class="hero-cta">
+          <a href="#articles" class="button button-primary">Исследовать сад</a>
+          <button class="button button-secondary" id="suggestTopicBtn">Предложить тему</button>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <img src="images/fonart.jpg" alt="Цифровой сад — рабочее пространство с книгами и знаниями" class="hero-image">
       </div>
     </section>
 
