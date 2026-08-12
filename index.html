@@ -241,9 +241,9 @@
       languageToggle.textContent = currentLang === 'ru' ? 'EN' : 'RU';
       
       languageToggle.addEventListener('click', () => {
+        const currentLang = localStorage.getItem('language') || 'ru';
         const newLang = currentLang === 'ru' ? 'en' : 'ru';
-        localStorage.setItem('language', newLang);
-        location.reload();
+        setLanguage(newLang);
       });
     });
   </script>
