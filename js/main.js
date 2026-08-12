@@ -32,6 +32,21 @@ async function loadArticles() {
 async function fetchArticlesList() {
   return [
     {
+      id: 'august-12-cosmic-day',
+      date: '2026-08-12',
+      updated: null,
+      status: 'Published',
+      heroImage: null,
+      readTime: 20,
+      ru: {
+        title: '12 августа 2026: день, когда небо решило устроить всё и сразу',
+        description: 'Полное солнечное затмение, пик метеорного потока Персеиды, парад шести планет и новолуние в одни сутки. Редкое совпадение астрономических событий и их наблюдение.',
+        categories: ['Астрономия', 'Наука'],
+        tags: ['затмение', 'метеоры', 'персеиды', 'планеты', 'астрономия', 'космос', 'новолуние'],
+        url: 'articles/august-12-cosmic-day.html'
+      }
+    },
+    {
       id: 'parenting-psychology-guide',
       date: '2026-08-12',
       updated: null,
@@ -364,6 +379,36 @@ function calculateReadTime(text) {
   const wordsPerMinute = 200;
   const words = text.trim().split(/\s+/).length;
   return Math.ceil(words / wordsPerMinute);
+}
+
+function formatDate(dateString, options = {}) {
+  const date = new Date(dateString);
+  const defaultOptions = { year: 'numeric', month: 'short', day: 'numeric', locale: 'ru-RU' };
+  const mergedOptions = { ...defaultOptions, ...options };
+  const locale = mergedOptions.locale || 'ru-RU';
+  
+  return date.toLocaleDateString(locale, mergedOptions);
+}
+
+function getCurrentLanguage() {
+  return 'ru'; // Default to Russian, can be extended for multi-language support
+}
+
+function getLocale() {
+  const lang = getCurrentLanguage();
+  return lang === 'ru' ? 'ru-RU' : 'en-US';
+}
+
+// Translation helper (stub for now)
+function t(key) {
+  const translations = {
+    'clear_filters': 'Очистить фильтры',
+    'results_count': 'Найдено статей:',
+    'read_time': 'мин',
+    'in_progress': 'В работе',
+    'read_button': 'Читать'
+  };
+  return translations[key] || key;
 }
 
 // ============================================================================
