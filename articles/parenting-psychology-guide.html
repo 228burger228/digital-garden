@@ -644,6 +644,9 @@ author_link: "https://t.me/stillvasilisa"
   <!-- Progress Bar -->
   <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 3px; background: var(--accent-sage); width: 0%; z-index: 1000; transition: width 0.1s ease;"></div>
 
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top" style="position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; border-radius: 50%; background: var(--accent-sage); color: white; border: none; cursor: pointer; display: none; z-index: 999; font-size: 24px; transition: opacity 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">↑</button>
+
   <!-- Theme Toggle Script -->
   <script>
     function initTheme() {
@@ -703,6 +706,31 @@ author_link: "https://t.me/stillvasilisa"
     }
 
     generateTOC();
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = 'block';
+        scrollToTopBtn.style.opacity = '1';
+      } else {
+        scrollToTopBtn.style.display = 'none';
+        scrollToTopBtn.style.opacity = '0';
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Hover effect
+    scrollToTopBtn.addEventListener('mouseover', () => {
+      scrollToTopBtn.style.opacity = '0.8';
+    });
+    scrollToTopBtn.addEventListener('mouseout', () => {
+      scrollToTopBtn.style.opacity = '1';
+    });
   </script>
 </body>
 </html>
