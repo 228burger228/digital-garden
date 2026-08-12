@@ -349,6 +349,7 @@ function createArticleCard(article) {
       <div class="article-card-meta">
         <span>🕐 ${article.readTime} ${t('read_time')}</span>
         <span>📅 ${formattedDate}</span>
+        <span class="view-count">👁 ${window.viewCounter.get(article.id)}</span>
         ${statusHTML}
       </div>
 
