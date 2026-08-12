@@ -45,7 +45,7 @@ const i18n = {
   en: {
     // Navigation & Header
     'logo': '🌱 Digital Garden',
-    'subtitle': 'My Research Archive',
+    'subtitle': 'Archive of My Research',
     'tagline': 'From technology and design to philosophy and personal reflections',
     
     // Search & Filters
@@ -104,20 +104,25 @@ function t(key) {
 
 // Translate element by data attribute
 function translatePage() {
+  // Translate elements with data-i18n
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    el.textContent = t(key);
+    const translation = t(key);
+    el.textContent = translation;
   });
   
+  // Translate placeholders
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
-    el.placeholder = t(key);
+    const translation = t(key);
+    el.placeholder = translation;
   });
 
-  // Copyright year is injected dynamically so it never goes stale
+  // Update copyright with year
   const copyrightEl = document.querySelector('[data-i18n="footer_copyright"]');
   if (copyrightEl) {
-    copyrightEl.textContent = `© ${new Date().getFullYear()} ${t('footer_copyright')}`;
+    const year = new Date().getFullYear();
+    copyrightEl.textContent = `© ${year} ${t('footer_copyright')}`;
   }
 }
 
@@ -131,5 +136,10 @@ function formatDate(dateStr, options = { year: 'numeric', month: 'long', day: 'n
   return new Date(dateStr).toLocaleDateString(getLocale(), options);
 }
 
-// Initialize translations on page load
-document.addEventListener('DOMContentLoaded', translatePage);
+// Initialize translations immediately on DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', translatePage);
+} else {
+  // If DOM is already loaded, translate immediately
+  translatePage();
+}
