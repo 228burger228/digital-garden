@@ -62,6 +62,7 @@
       <div style="display: flex; gap: 1rem; align-items: center;">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
         <button id="languageToggle" class="language-toggle" style="background: transparent; border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; color: var(--text-primary); transition: all 0.2s;" aria-label="Switch language">EN</button>
+        <button id="faqBtn" class="faq-btn" title="FAQ" aria-label="Open FAQ" style="background: transparent; border: 1px solid var(--border); padding: 0.5rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 1.25rem; transition: all 0.2s; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;">?</button>
       </div>
     </nav>
   </header>
@@ -138,6 +139,162 @@
     </section>
   </main>
 
+  <!-- FAQ Modal -->
+  <div id="faqModal" class="modal" style="display: none;">
+    <div class="modal-content" style="max-width: 600px; max-height: 80vh; overflow-y: auto;">
+      <button class="modal-close" id="faqClose" aria-label="Close FAQ">&times;</button>
+      <h2 style="margin-top: 0;">❓ FAQ — Часто задаваемые вопросы</h2>
+      
+      <div style="padding: 0 0.5rem;">
+        <!-- About Project -->
+        <div class="faq-section">
+          <h3 style="color: var(--accent-sage); margin-top: 1.5rem; margin-bottom: 0.5rem;">🌱 О проекте</h3>
+          
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Что такое Digital Garden?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Это персональный архив исследований и статей на HTML/CSS/JavaScript. Проект не коммерческий, не спонсируется и не содержит рекламы. Это просто место, где собираются идеи.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Кто может писать статьи?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Пока статьи пишу я. Но если у тебя есть идея или готовая статья — напиши мне через форму "Связаться". Принимаю материалы на русском и английском.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Это для продажи или монетизации?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Нет. Digital Garden — некоммерческий проект. Здесь нет рекламы, отслеживания, подписок или платных материалов. Всё бесплатно и всегда будет.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Могу ли я использовать контент?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Материалы здесь для чтения и изучения. Если хочешь перепубликовать или цитировать — указывай источник. Связывайся со мной, если не уверен.
+            </p>
+          </div>
+        </div>
+
+        <!-- Suggest Topics -->
+        <div class="faq-section">
+          <h3 style="color: var(--accent-sage); margin-top: 1.5rem; margin-bottom: 0.5rem;">💡 Предложить тему</h3>
+          
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Как предложить тему для статьи?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Нажми на кнопку "Предложить тему" в главном хиро-разделе или напиши через форму "Связаться". Расскажи, какую тему ты хотел бы разобрать — психология, технологии, книги, что угодно.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Что если я знаю много по теме?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Ещё лучше! Если ты эксперт в чём-то — напиши статью или пришли материалы. Можем работать вместе: я структурирую, ты проверяешь. Твоё имя будет указано как автор.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Как долго жду ответа?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Обычно отвечаю в течение недели. Если тема интересная — запускаю исследование и пишу статью. Это может занять 2–4 недели.
+            </p>
+          </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="faq-section">
+          <h3 style="color: var(--accent-sage); margin-top: 1.5rem; margin-bottom: 0.5rem;">⚙️ Как всё работает</h3>
+          
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Что такое счётчик просмотров?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Показывает, сколько раз статью открывали на твоём компьютере. Данные хранятся в браузере (localStorage), не отправляются никуда и видны только тебе.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Есть ли аналитика и отслеживание?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Нет Google Analytics, no Facebook Pixel, никакого отслеживания. Я не знаю, сколько людей посещает сайт. И это намеренно — конфиденциальность важнее метрик.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Работает ли поиск и фильтры?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Да! Поиск ищет по названиям, описаниям и тегам. Фильтры по категориям работают. Всё это на стороне браузера, без запросов к серверу.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Можно ли подписаться на обновления?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Да! Есть RSS фид. Добавь <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 3px;">/feed.xml</code> в любой RSS-читатель (Feedly, Apple News и т.д.) и получишь уведомления о новых статьях.
+            </p>
+          </div>
+        </div>
+
+        <!-- What's Not Done -->
+        <div class="faq-section">
+          <h3 style="color: var(--accent-sage); margin-top: 1.5rem; margin-bottom: 0.5rem;">🔨 Что ещё не готово</h3>
+          
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Что планируется добавить?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              <ul style="margin: 0; padding-left: 1.5rem;">
+                <li>✅ Счётчик просмотров (готово!)</li>
+                <li>⏳ Система комментариев (Giscus + GitHub Discussions)</li>
+                <li>⏳ Лайки на статьи</li>
+                <li>⏳ Система тегов и связанных статей</li>
+                <li>⏳ Advanced analytics (без отслеживания)</li>
+                <li>⏳ Service Worker для offline режима</li>
+              </ul>
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Почему нет комментариев?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Комментарии в разработке. Хочу использовать Giscus (комменты через GitHub, никаких третьих сервисов), но это требует настройки. Скоро будет!
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Есть ли баги?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Возможно! Если что-то работает неправильно — напиши мне. Особенно на мобильных устройствах или старых браузерах. Помогу исправить.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="faq-section">
+          <h3 style="color: var(--accent-sage); margin-top: 1.5rem; margin-bottom: 0.5rem;">📧 Связь</h3>
+          
+          <div class="faq-item">
+            <h4 style="cursor: pointer; user-select: none; margin: 1rem 0 0.5rem 0;">Как со мной связаться?</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-secondary);">
+              Нажми "Связаться" внизу страницы или напиши напрямую:
+              <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem;">
+                <li>📧 Email: ai.movl@gmail.com</li>
+                <li>💼 GitHub: <a href="https://github.com/228burger228" target="_blank" style="color: var(--accent-sage);">228burger228</a></li>
+                <li>✈️ Telegram: <a href="https://t.me/aimovl" target="_blank" style="color: var(--accent-sage);">@aimovl</a></li>
+              </ul>
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-secondary); text-align: center;">
+          <p>Digital Garden — некоммерческий проект. Спасибо, что ты здесь! 🌱</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -205,6 +362,7 @@
   </script>
 
   <script src="js/i18n.js" defer></script>
+  <script src="js/views.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/modal.js" defer></script>
   <script src="js/contact-form.js" defer></script>
@@ -245,6 +403,41 @@
         const newLang = currentLang === 'ru' ? 'en' : 'ru';
         setLanguage(newLang);
       });
+
+      // FAQ Modal Handler
+      const faqBtn = document.getElementById('faqBtn');
+      const faqModal = document.getElementById('faqModal');
+      const faqClose = document.getElementById('faqClose');
+
+      if (faqBtn && faqModal && faqClose) {
+        faqBtn.addEventListener('click', () => {
+          faqModal.style.display = 'flex';
+          faqModal.style.alignItems = 'center';
+          faqModal.style.justifyContent = 'center';
+          document.body.style.overflow = 'hidden';
+        });
+
+        faqClose.addEventListener('click', () => {
+          faqModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+
+        // Close on backdrop click
+        faqModal.addEventListener('click', (e) => {
+          if (e.target === faqModal) {
+            faqModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && faqModal.style.display !== 'none') {
+            faqModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
     });
   </script>
 </body>
