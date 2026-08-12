@@ -45,7 +45,7 @@ const i18n = {
   en: {
     // Navigation & Header
     'logo': '🌱 Digital Garden',
-    'subtitle': 'Archive of My Research',
+    'subtitle': 'My Research Archive',
     'tagline': 'From technology and design to philosophy and personal reflections',
     
     // Search & Filters
