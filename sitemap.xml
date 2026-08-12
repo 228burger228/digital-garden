@@ -12,6 +12,13 @@
 
   <!-- Articles -->
   <url>
+    <loc>https://digitalgardenai.com/articles/august-12-cosmic-day.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://digitalgardenai.com/articles/parenting-psychology-guide.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
